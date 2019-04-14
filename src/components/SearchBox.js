@@ -6,7 +6,7 @@ const SerachBox = ({searchChange}) => {
 			<input
 			className='pa3 ba b--green bg-lightest-blue'
 			type='search'
-			placeholder='search your fucking robots here'
+			placeholder='search your robots here'
 			onChange={searchChange}
 			size="35"
 			/>
