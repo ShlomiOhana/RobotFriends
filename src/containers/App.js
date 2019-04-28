@@ -4,6 +4,7 @@ import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from'../components/Scroll';
 import ErrorBoundry from '../components/ErrorBoundry';
+import Header from '../components/Header';
 import {setSearchField, requestRobots} from '../actions';
 import {connect} from 'react-redux';
 
@@ -33,16 +34,16 @@ class App extends Component {
 		const filterRobot = robots.filter(robot => {
 		return robot.name.toLowerCase().includes(searchField.toLowerCase());
 		})
-		return isPending ?
-		<h1>Loading...</h1> :
-		(
+		return (
 			<div className='tc'>
-				<h1 className='f2'>RoboFriends</h1>
+				<Header />
 				<SearchBox searchChange={onSearchChange}/>
 				<Scroll>
+					{ isPending ? <h1>Loading...</h1> :
 					<ErrorBoundry>
 						<CardList robots={filterRobot}/>
 					</ErrorBoundry>
+					}
 				</Scroll>
 			</div>
 	  	);
